@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ConnexionComponent} from "./connexion/connexion.component";
 
 const routes: Routes = [
-  {path: "", redirectTo: 'connexion', pathMatch: 'full'},
+  {path: "", redirectTo: 'conenxion', pathMatch: 'full'},
   {path: 'conenxion', component: ConnexionComponent},
 ];
 
