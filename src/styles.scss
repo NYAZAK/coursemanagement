@@ -1,3 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~font-awesome/css/font-awesome.css';
+
+
+
+
+// style personnel
+
+.w-100 {
+  width: 100%;
+}
+
+.w-auto{
+  width: auto;
+}
+
+.center-element {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.m-t-1{
+  margin-top: 10px;
+}
+
+.m-t-4{
+  margin: 40px;
+}
