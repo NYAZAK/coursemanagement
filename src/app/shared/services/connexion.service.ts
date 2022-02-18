@@ -19,7 +19,7 @@ export class ConnexionService {
       mdp: "azerty"
     },
     {
-      id: "1",
+      id: "2",
       professeur: false,
       nom: "pierre",
       prenom: "paul",
@@ -36,15 +36,20 @@ export class ConnexionService {
 
   public authutilisateur(donneesconnexion: ConnexionModel) : boolean
   {
-    this.utilisateurs.map(utilisateur => {
+    // @ts-ignore
+    this.utilisateurs.map((utilisateur: UserModel) => {
       this.pseudo = utilisateur.pseudo;
       this.mdp = utilisateur.mdp;
-    })
-    if(this.pseudo == donneesconnexion.nomUtilisateur &&
-      this.mdp == donneesconnexion.motDePasse ){
-      return true;
-    }
-    return false;
+      console.log({pseudo: donneesconnexion.nomUtilisateur, donnepseudo: this.pseudo, mdp: donneesconnexion.motDePasse, mdpdonne: this.mdp })
+
+      if(this.pseudo == donneesconnexion.nomUtilisateur &&
+        this.mdp == donneesconnexion.motDePasse ){
+        console.log({pseudo: donneesconnexion.nomUtilisateur, donnepseudo: this.pseudo, mdp: donneesconnexion.motDePasse, mdpdonne: this.mdp })
+        return true;
+      }
+    });
+
+    return true;
   }
 
 
