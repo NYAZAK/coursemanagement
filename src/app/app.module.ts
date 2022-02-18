@@ -9,6 +9,7 @@ import { CreercoursComponent } from './cours/creercours/creercours.component';
 import { CherchercoursComponent } from './cours/cherchercours/cherchercours.component';
 import { NotfoundComponent } from './layout/notfound/notfound.component';
 import { DetailcoursComponent } from './cours/detailcours/detailcours.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DetailcoursComponent } from './cours/detailcours/detailcours.component'
     CreercoursComponent,
     CherchercoursComponent,
     NotfoundComponent,
-    DetailcoursComponent
+    DetailcoursComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

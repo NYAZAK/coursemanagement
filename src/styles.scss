@@ -2,8 +2,36 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~font-awesome/css/font-awesome.css';
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+ul{
+  list-style: none;
+  & li {
+    cursor: pointer;
+  }
+}
 
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+// css root variables
+:root{
+  --font-family-regular: 'Open Sans', sans-serif;
+  --primary:#1B1464 ;
+  --secondary: #58B19F;
+  --highlight: #1289A7;
+  --btn-hover: #12CBC4;
+  --danger: #ED4C67;
+  --accent: #006266;
+  --text-regular: #192128;
+}
 
 // style personnel
 
@@ -14,6 +42,8 @@
 .w-auto{
   width: auto;
 }
+
+
 
 .center-element {
 
@@ -27,4 +57,25 @@
 
 .m-t-4{
   margin: 40px;
+}
+
+
+.btn {
+  padding: 10px 15px;
+  background-color: white;
+  border: 0;
+  border-radius: 3px;
+  font-weight: 700;
+  cursor: pointer;
+  &-primary {
+    background-color: var(--primary);
+    color: white;
+    &:hover {
+      background-color: var(--secondary);
+    }
+    transition: background-color 0.4s;
+  }
+  &-secondary {
+    background-color: #ddd;
+  }
 }
