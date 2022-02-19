@@ -1,9 +1,9 @@
 <div class="container">
 <h2>Detail du cours</h2>
   <div class="center-element w-75">
-    <ul>
+    <ul *ngIf="cours">
       <hr>
-      <li>{{cours.name}}</li>
+      <li>{{cours.title}}</li>
       <hr>
       <li>{{cours.description}}</li>
       <hr>

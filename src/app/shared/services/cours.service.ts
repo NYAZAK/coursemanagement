@@ -7,14 +7,14 @@ import {Cours} from "../models/cours";
 })
 export class CoursService {
   public cours: BehaviorSubject<Cours[]> = new BehaviorSubject<Cours[]>([
-    { name: 'math',
+    { title: 'math',
       description:'ccours de calcul matriciel',
       categorie:'science dure',
       sujet: 'calculs matriciel',
       nombreEtudiants:42,
       heuredebut: "12"
     },
-    { name: 'français',
+    { title: 'français',
       description:'ccours de litterature française',
       categorie:'litterature',
       sujet: 'civislisation française',

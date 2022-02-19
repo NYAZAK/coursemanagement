@@ -7,7 +7,7 @@ import {Cours} from "../../shared/models/cours";
   styleUrls: ['./cherchercours.component.scss']
 })
 export class CherchercoursComponent implements OnInit {
-  @Input() public cours: Cours[];
+  @Input() public cours$: Cours[];
   public search = '';
   constructor() { }
 

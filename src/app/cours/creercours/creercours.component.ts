@@ -16,10 +16,10 @@ export class CreercoursComponent implements OnInit {
     this.creerCoursForm = this.initCoursForm();
   }
 
-  private initCoursForm(cours:Cours = { name : '', categorie : 'categorie', description :  '', sujet :  'sujet',
+  private initCoursForm(cours:Cours = { title : '', categorie : 'categorie', description :  '', sujet :  'sujet',
     date: '', heuredebut : '', nombreEtudiants: 0}) : FormGroup{
     return this.formBuilder.group({
-      name: [cours ? cours.name : '', Validators.required],
+      title: [cours ? cours.title : '', Validators.required],
       description: [cours ? cours.description : '', Validators.required],
       categorie: [cours ? cours.categorie : '', Validators.required],
       sujet: [cours ? cours.sujet : '', Validators.required],

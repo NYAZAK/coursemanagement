@@ -10,6 +10,7 @@ import { CherchercoursComponent } from './cours/cherchercours/cherchercours.comp
 import { NotfoundComponent } from './layout/notfound/notfound.component';
 import { DetailcoursComponent } from './cours/detailcours/detailcours.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { RecherchePipe } from './shared/pipes/recherche.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './layout/header/header.component';
     CherchercoursComponent,
     NotfoundComponent,
     DetailcoursComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecherchePipe
   ],
   imports: [
     BrowserModule,

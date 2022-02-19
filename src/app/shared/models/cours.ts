@@ -1,5 +1,6 @@
 export interface Cours {
-  name: string;
+  id?: string;
+  title: string;
   description: string;
   categorie: string;
   sujet: string;
