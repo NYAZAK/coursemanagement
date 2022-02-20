@@ -31,6 +31,7 @@ export class CreercoursComponent implements OnInit {
 
   public creerCours(cours: Cours) {
     this.coursService.ajouterCours(cours);
+    this.creerCoursForm.reset();
   }
 
 }

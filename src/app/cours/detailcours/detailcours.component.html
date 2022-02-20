@@ -6,7 +6,9 @@
         <h5 class="card-title">{{cours.titre}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{cours.sujet}}</h6>
         <p class="card-text">{{cours.description}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">heure début: {{cours.heuredebut}}</h6>
         <div class="prof" *ngIf="isProf">
+          <h6 class="card-subtitle mb-2 text-muted">nombre etudiants: {{cours.nombreEtudiants}}</h6>
         <button (click)="modifierCours(cours)" class="btn btn-more">modifier</button>
         <button (click)="supprimerCours(cours)" class="btn btn-delete m-1">supprimer</button>
         </div>

@@ -1,7 +1,7 @@
 <div style="margin-top: 200px" class="connexionFormulaire col-6 center-element ">
 
 <form [formGroup]="connexionForm" (ngSubmit)="connexionValide()"  class=" formulaire center-element col-12">
-  <h1 class="text-center m-t-4">Conenxion utilisateur</h1>
+  <h1 class="text-center m-t-4">Conenxion utilisateur Inscrit</h1>
   <div  class="d-flex flex-column justify-content-center col-8 center-element">
   <div class="mb-3">
     <label for="utilisateur" class="form-label">Mail</label>
@@ -15,8 +15,9 @@
     <input type="password" class="form-control" id="motdepasse"
           formControlName="motDePasse">
   </div>
+    <span class="text-danger text-center" *ngIf="inValidauth"> mot de passe ou email invalide</span>
   <button type="submit" class="btn btn-primary m-t-4">Connexion</button>
-<!--    <span *ngIf="connexionService.user$">  {{(connexionService.user$ | async)?.email}}</span>-->
+
   </div>
 </form>
 </div>

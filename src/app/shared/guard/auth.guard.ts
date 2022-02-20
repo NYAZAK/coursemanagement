@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       this.isProf =  isprof.uid == 'zTOIGnNlSdTEAQNsAhtln0cN1892';
     })
     console.log(this.isProf, 'ddd');
-    return false;
+    return true;
 
   }
   canActivateChild(
