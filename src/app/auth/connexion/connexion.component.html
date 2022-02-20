@@ -4,11 +4,11 @@
   <h1 class="text-center m-t-4">Conenxion utilisateur</h1>
   <div  class="d-flex flex-column justify-content-center col-8 center-element">
   <div class="mb-3">
-    <label for="utilisateur" class="form-label">Nom utilisarteur</label>
-    <input type="text" class="form-control"
+    <label for="utilisateur" class="form-label">Mail</label>
+    <input type="email" class="form-control"
            id="utilisateur"
            aria-describedby="emailHelp"
-          formControlName="nomUtilisateur">
+          formControlName="mail">
   </div>
   <div class="mb-3">
     <label for="motdepasse" class="form-label">Mot de Passe</label>
@@ -16,6 +16,7 @@
           formControlName="motDePasse">
   </div>
   <button type="submit" class="btn btn-primary m-t-4">Connexion</button>
+<!--    <span *ngIf="connexionService.user$">  {{(connexionService.user$ | async)?.email}}</span>-->
   </div>
 </form>
 </div>

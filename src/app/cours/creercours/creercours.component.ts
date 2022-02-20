@@ -16,11 +16,8 @@ export class CreercoursComponent implements OnInit {
   ngOnInit(): void {
     this.creerCoursForm = this.initCoursForm();
   }
-
-  private initCoursForm(cours:Cours = { titre : '', categorie : 'categorie', description :  '', sujet :  'sujet',
-    date: '', heuredebut : '', nombreEtudiants: 0}) : FormGroup | null{
-if(cours) {
-  if (this.creerCoursForm.valid) {
+  private initCoursForm(cours:Cours = { titre : '', categorie : '', description :  '', sujet :  '',
+    date: '', heuredebut : '', nombreEtudiants: 0}) : FormGroup {
     return this.formBuilder.group({
       titre: [cours ? cours.titre : '', Validators.required],
       description: [cours ? cours.description : '', Validators.required],
@@ -30,9 +27,6 @@ if(cours) {
       date: [cours ? cours.date : '', Validators.required],
       nombreEtudiants: [cours ? cours.nombreEtudiants : '', Validators.required],
     })
-  }
-}
-    return null;
   }
 
   public creerCours(cours: Cours) {

@@ -1,0 +1,26 @@
+<div style="margin-top: 200px" class="connexionFormulaire col-6 center-element ">
+
+  <form   class=" formulaire center-element col-12">
+    <h1 class="text-center m-t-4">Créer un utilisateur</h1>
+    <div  class="d-flex flex-column justify-content-center col-8 center-element">
+      <div class="mb-3">
+        <label for="utilisateur" class="form-label">Mail</label>
+        <input type="email" class="form-control"
+               id="utilisateur"
+               aria-describedby="emailHelp"
+               formControlName="mail">
+      </div>
+      <div class="mb-3">
+        <label for="motdepasse" class="form-label">Mot de Passe</label>
+        <input type="password" class="form-control" id="motdepasse"
+               formControlName="motDePasse">
+      </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+          <label class="form-check-label" for="flexSwitchCheckChecked"> Est-ce un professeur ?</label>
+        </div>
+      <button type="submit" class="btn btn-primary m-t-4">Créer compte</button>
+      <!--    <span *ngIf="connexionService.user$">  {{(connexionService.user$ | async)?.email}}</span>-->
+    </div>
+  </form>
+</div>

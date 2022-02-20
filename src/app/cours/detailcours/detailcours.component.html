@@ -1,17 +1,16 @@
 <div class="container">
 <h2>Detail du cours</h2>
-  <div class="center-element w-75">
-    <ul *ngIf="cours">
-      <hr>
-      <li>{{cours.titre}}</li>
-      <hr>
-      <li>{{cours.description}}</li>
-      <hr>
-      <li>{{cours.categorie}}</li>
-      <hr>
-      <li>{{cours.sujet}}</li>
-      <hr>
-      <li>{{cours.heuredebut}}</li>
-    </ul>
+  <div class="center-element">
+    <div *ngIf="cours" class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{cours.titre}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{cours.sujet}}</h6>
+        <p class="card-text">{{cours.description}}</p>
+        <div class="prof" *ngIf="isProf">
+        <button (click)="modifierCours(cours)" class="btn btn-more">modifier</button>
+        <button (click)="supprimerCours(cours)" class="btn btn-delete m-1">supprimer</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

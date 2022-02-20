@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Cours} from "../../shared/models/cours";
 import {CoursService} from "../../shared/services/cours.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Route, Router} from "@angular/router";
+import {ConnexionService} from "../../shared/services/connexion.service";
 
 @Component({
   selector: 'app-detailcours',
@@ -9,17 +10,40 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
   styleUrls: ['./detailcours.component.scss']
 })
 export class DetailcoursComponent implements OnInit {
-  public cours!: Cours;
-  constructor(private coursService: CoursService, private activeRoute: ActivatedRoute) { }
+  public cours!: any;
+  isProf: boolean;
+
+  constructor(private coursService: CoursService,private connexionService: ConnexionService,  private activeRoute: ActivatedRoute, private route: Router) {
+    this.connexionService.user$.subscribe(
+      prof => {
+
+        if(prof.uid === 'zTOIGnNlSdTEAQNsAhtln0cN1892'){
+          this.isProf = true;
+        }
+      }
+    )
+  }
 
   ngOnInit(): void {
   this.activeRoute.paramMap.subscribe((param: ParamMap) => {
     const index = param.get('index');
     if(index) {
-       this.coursService.getCours(+index);
+       this.coursService.getLesCours().subscribe(
+        cours => {
+          this.cours = cours[index];
+        }
+      );
     }
   })
-
   }
 
+
+  public supprimerCours(cours: Cours){
+    this.coursService.supprimerCours(cours);
+    this.route.navigateByUrl('cours/0');
+  }
+
+  public modifierCours(cours: any){
+    //this.coursService.modifierCours(cours);
+  }
 }

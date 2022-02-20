@@ -2,6 +2,10 @@ import {Injectable, OnInit} from '@angular/core';
 import {UserModel} from "../models/user.model";
 import {ConnexionModel} from "../models/connexion.model";
 import {AngularFireDatabase} from "@angular/fire/compat/database";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
+import * as Firebase from 'firebase/app';
+import {Observable} from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,36 +34,32 @@ export class ConnexionService implements OnInit{
       mdp: "jaimepaslecole"
     }
   ]
-  pseudo: string;
-  mdp: string;
-  isAuth: true;
-  data: any;
-  constructor(private afdb: AngularFireDatabase) { }
+  user$: Observable<any>;
+  constructor(private angularAuth: AngularFireAuth) {
+    this.user$ = this.angularAuth.authState;
+  }
 
   ngOnInit() {
-
-
   }
 
-  public getUser(){
-    return this.data = this.afdb.list('users').valueChanges();
+
+  /**
+   * persmet de creer de nouveaux utilisateurs
+   * @param email
+   * @param motDePass
+   * @return promess
+   */
+  public nouvelUtilisateur(email: string, motDePass: string){
+    return this.angularAuth.createUserWithEmailAndPassword(email, motDePass)
   }
 
-  public authutilisateur(donneesconnexion: ConnexionModel) : boolean
+  public authUtilisateur(mail: string, motDePasse: string)
   {
-    // @ts-ignore
-    this.utilisateurs.map((utilisateur: UserModel) => {
-      this.pseudo = utilisateur.pseudo;
-      this.mdp = utilisateur.mdp;
-      if(this.pseudo == donneesconnexion.nomUtilisateur &&
-        this.mdp == donneesconnexion.motDePasse ){
-        this.isAuth =true;
-         return true;
-      }
-    });
-
-    return true;
+   return this.angularAuth.signInWithEmailAndPassword(mail, motDePasse)
   }
 
+  public seDeconnecter() {
+    this.angularAuth.signOut();
+  }
 
 }

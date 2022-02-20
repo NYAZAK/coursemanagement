@@ -75,6 +75,14 @@ a{
     }
     transition: background-color 0.4s;
   }
+  &-delete{
+    background-color: var(--danger);
+    color: white;
+  }
+  &-more{
+    background-color: var(--secondary);
+    color: white;
+  }
   &-secondary {
     background-color: #ddd;
   }

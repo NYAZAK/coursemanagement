@@ -1,4 +1,7 @@
+import {FirebaseOperation} from "@angular/fire/compat/database/interfaces";
+
 export interface Cours {
+  key?: FirebaseOperation;
   id?: string;
   titre: string;
   description: string;
