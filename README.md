@@ -5,6 +5,7 @@ par Zakaria NYA - Credits : 02-2022
 
 ## clone
 la branche principale à cloner en local est la branche dev
+suivre les instructions firebase sur le readme branch dev
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
