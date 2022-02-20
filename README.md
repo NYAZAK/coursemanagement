@@ -7,11 +7,11 @@ par Zakaria NYA - Credits : 02-2022
 j'ai utilisé firebase et non pas une vrai rest api car plus facile et rapide à installer 
 deux utilisateurs existent dans la base de donnée firebase de google
 
-un uitilisateur professeur  \n
+un uitilisateur professeur 
 email : mail@mail.fr
 mdp: azerty
 
-un utilisateur eleve \n
+un utilisateur eleve 
 email: eleve@mail.com
 mdp: 000000
 
