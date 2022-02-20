@@ -1,0 +1,43 @@
+<div class="w-100 m-1">
+  <h2>Creer un cours</h2>
+  <form [formGroup]="creerCoursForm"  (ngSubmit)="creerCours(creerCoursForm.value)">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nom du Cours</label>
+      <input type="text" formControlName="titre"
+             class="form-control" id="name"
+             aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Contenu du Cours</label>
+      <textarea formControlName="description"
+        class="form-control"
+        id="description"
+        rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="Categorie" class="form-label">Categorie</label>
+      <input
+        formControlName="categorie"
+        type="email" class="form-control" id="Categorie" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="Sujet" class="form-label">Sujet</label>
+      <input
+        formControlName="sujet"
+        type="email" class="form-control" id="Sujet" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="heure" class="form-label">heure debut</label>
+      <input
+        formControlName="heuredebut"
+        type="email" class="form-control" id="heure" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="nbetudiant" class="form-label">nombre etudiant</label>
+      <input
+        formControlName="nombreEtudiants"
+        type="email" class="form-control" id="nbetudiant" aria-describedby="emailHelp">
+    </div>
+    <button type="submit" class="btn btn-primary">Créer cours</button>
+  </form>
+</div>

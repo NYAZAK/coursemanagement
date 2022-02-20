@@ -1,0 +1,12 @@
+<div class="header w-100 d-flex flex-row justify-content-between align-items-center">
+
+  <a class="logo  m-2">COURS</a>
+  <ul class=" m-2">
+    <li routerLink="/cours">mon compte</li>
+    <li *ngIf="(connexionService.user$ | async)" (click)="seDeconnecter()">Deconnexion</li>
+    <span *ngIf="isProf && (connexionService.user$ | async)" >
+    <li routerLink="/cours/creationcours">creer Cours</li>
+    <li routerLink="/creationUtilisateur">creer Utilisateur</li>
+    </span>
+  </ul>
+</div>

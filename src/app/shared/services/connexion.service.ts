@@ -1,11 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {UserModel} from "../models/user.model";
 import {ConnexionModel} from "../models/connexion.model";
+import {AngularFireDatabase} from "@angular/fire/compat/database";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
+import * as Firebase from 'firebase/app';
+import {Observable} from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConnexionService {
+export class ConnexionService implements OnInit{
   /* CREATION MOKE POUR l'EXEMPLE  */
   utilisateurs: UserModel[] = [
     {
@@ -19,7 +24,7 @@ export class ConnexionService {
       mdp: "azerty"
     },
     {
-      id: "1",
+      id: "2",
       professeur: false,
       nom: "pierre",
       prenom: "paul",
@@ -29,23 +34,32 @@ export class ConnexionService {
       mdp: "jaimepaslecole"
     }
   ]
-  pseudo: string;
-  mdp: string;
-  constructor() { }
-
-
-  public authutilisateur(donneesconnexion: ConnexionModel) : boolean
-  {
-    this.utilisateurs.map(utilisateur => {
-      this.pseudo = utilisateur.pseudo;
-      this.mdp = utilisateur.mdp;
-    })
-    if(this.pseudo == donneesconnexion.nomUtilisateur &&
-      this.mdp == donneesconnexion.motDePasse ){
-      return true;
-    }
-    return false;
+  user$: Observable<any>;
+  constructor(private angularAuth: AngularFireAuth) {
+    this.user$ = this.angularAuth.authState;
   }
 
+  ngOnInit() {
+  }
+
+
+  /**
+   * persmet de creer de nouveaux utilisateurs
+   * @param email
+   * @param motDePass
+   * @return promess
+   */
+  public nouvelUtilisateur(email: string, motDePass: string){
+    return this.angularAuth.createUserWithEmailAndPassword(email, motDePass)
+  }
+
+  public authUtilisateur(mail: string, motDePasse: string)
+  {
+   return this.angularAuth.signInWithEmailAndPassword(mail, motDePasse)
+  }
+
+  public seDeconnecter() {
+    this.angularAuth.signOut();
+  }
 
 }
