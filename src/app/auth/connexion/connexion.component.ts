@@ -34,13 +34,10 @@ export class ConnexionComponent implements OnInit {
    const connexion = this.connexionService.authUtilisateur(
      entreUtilisateurMail, entreUtilisateurmdp).then(
        user => {
-         console.log(user, 'connecté')
          this.route.navigateByUrl('/cours');
        }
    ).catch(err => {
-     console.log(this.inValidauth, 'er')
      this.inValidauth = true;
-     console.log(this.inValidauth, 'er')
      console.error(err);
    });
 
