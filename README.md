@@ -3,6 +3,19 @@
 projet de cours management etudiants/professeurs pour le test de candidature pixalione.fr 
 par Zakaria NYA - Credits : 02-2022
 
+## firebase
+j'ai utilisé firebase et non pas une vrai rest api car plus facile et rapide à installer
+
+deux utilisateurs existe dans la base de donnée de firebase de google
+
+un uitilisateur professeur 
+email : mail@mail.fr
+mdp: azerty
+
+un utilisateur eleve
+email: eleve@mail.com
+mdp: 000000
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 

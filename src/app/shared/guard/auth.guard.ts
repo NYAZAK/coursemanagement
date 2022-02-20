@@ -27,10 +27,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     this.serviceConexion.user$.subscribe(isprof => {
+      console.log(isprof)
       this.isProf =  isprof.uid == 'zTOIGnNlSdTEAQNsAhtln0cN1892';
     })
     console.log(this.isProf, 'ddd');
-    return this.isProf;
+    return false;
 
   }
   canActivateChild(

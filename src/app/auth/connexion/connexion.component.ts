@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class ConnexionComponent implements OnInit {
   connexionForm: FormGroup;
-
+  inValidauth: boolean;
   constructor(private formBuilder: FormBuilder,
               private connexionService: ConnexionService,
               private route: Router) {
@@ -38,9 +38,10 @@ export class ConnexionComponent implements OnInit {
          this.route.navigateByUrl('/cours');
        }
    ).catch(err => {
+     this.inValidauth = false;
      console.error(err);
    });
-   console.log(connexion);
+
   }
 
 
