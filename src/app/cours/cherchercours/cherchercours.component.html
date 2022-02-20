@@ -2,7 +2,7 @@
 <h2>Chercher Votre Cours</h2>
 <input class="mb-20 w-50" type="text" placeholder="Rechercher un cours" [(ngModel)]="search">
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let cours of cours$ ; let index = index"
+  <li class="list-group-item" *ngFor="let cours of cours$ | recherche:search; let index = index"
       [routerLink]="[index]" routerLinkActive="active">{{cours.titre}}</li>
 </ul>
 </div>

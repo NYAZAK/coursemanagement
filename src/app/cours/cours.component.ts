@@ -11,7 +11,7 @@ import {ConnexionService} from "../shared/services/connexion.service";
 })
 export class CoursComponent implements OnInit {
   //public cours$: Observable<Cours[]> = this.coursService.cours;
-  coursFire: any;
+  coursItem: any;
   constructor(private coursService: CoursService) { }
 
   ngOnInit(): void {
@@ -19,11 +19,9 @@ export class CoursComponent implements OnInit {
     this.coursService.getLesCours().subscribe(
       cours => {
         console.log(cours, 'cours');
-       return this.coursFire = cours;
+       return this.coursItem = cours;
       }
     );
-
-
   }
 
 
