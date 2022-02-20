@@ -1,31 +1,23 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Cours} from "../models/cours";
+import {AngularFireDatabase} from "@angular/fire/compat/database";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursService {
-  public cours: BehaviorSubject<Cours[]> = new BehaviorSubject<Cours[]>([
-    { title: 'math',
-      description:'ccours de calcul matriciel',
-      categorie:'science dure',
-      sujet: 'calculs matriciel',
-      nombreEtudiants:42,
-      heuredebut: "12"
-    },
-    { title: 'français',
-      description:'ccours de litterature française',
-      categorie:'litterature',
-      sujet: 'civislisation française',
-      nombreEtudiants:39,
-      heuredebut: "14"
-    },
-  ])
-  constructor() { }
 
+  constructor(private afdb: AngularFireDatabase) { }
 
-  public getCours(index: number): Cours {
-    return this.cours.value[index];
+  public getCours(index: number) {
+    return this.afdb.list('cours');
+  }
+  public getLesCours() : Observable<any>{
+    return this.afdb.list('cours').valueChanges();
+  }
+
+  public ajouterCours(cours: Cours) {
+    return this.afdb.list('cours').push(cours);
   }
 }

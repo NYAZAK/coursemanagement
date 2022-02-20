@@ -12,6 +12,7 @@ export class CherchercoursComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.cours$, 'cours recherche');
   }
 
 }

@@ -13,9 +13,11 @@ const routes: Routes = [
   {path: 'conenxion', component: ConnexionComponent},
   {path: 'cours', component: CoursComponent, canActivateChild: [AuthGuard], children: [
       {path: 'rechercheCours', component: CherchercoursComponent},
+
+      {path: 'creationcours', component: CreercoursComponent, canActivate: [AuthGuard]},
       {path: ':index', component: DetailcoursComponent},
-      {path: 'creationcours', component: CreercoursComponent},
-      {path: ':index/modifier', component: CreercoursComponent}
+      {path: ':index/modifier', component: CreercoursComponent},
+      {path: '', redirectTo: '0', pathMatch: 'full'}
     ]},
 
   {path: "**", component: NotfoundComponent}

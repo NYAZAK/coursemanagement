@@ -16,8 +16,7 @@ export class RecherchePipe implements PipeTransform {
       return cours;
     }
     return cours.filter(cours => {
-      console.log('cours et recherche');
-      cours.title.toLowerCase().includes(recherche.toLowerCase());
+      cours.titre.toLowerCase().includes(recherche.toLowerCase());
     });
   }
 

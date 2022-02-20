@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Cours} from "../../shared/models/cours";
 import {CoursService} from "../../shared/services/cours.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
@@ -16,7 +16,7 @@ export class DetailcoursComponent implements OnInit {
   this.activeRoute.paramMap.subscribe((param: ParamMap) => {
     const index = param.get('index');
     if(index) {
-      this.cours = this.coursService.getCours(+index);
+       this.coursService.getCours(+index);
     }
   })
 

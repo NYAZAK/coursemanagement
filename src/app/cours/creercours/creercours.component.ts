@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Cours} from "../../shared/models/cours";
+import {CoursService} from "../../shared/services/cours.service";
 
 @Component({
   selector: 'app-creercours',
@@ -10,16 +11,18 @@ import {Cours} from "../../shared/models/cours";
 export class CreercoursComponent implements OnInit {
   creerCoursForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private coursService: CoursService) { }
 
   ngOnInit(): void {
     this.creerCoursForm = this.initCoursForm();
   }
 
-  private initCoursForm(cours:Cours = { title : '', categorie : 'categorie', description :  '', sujet :  'sujet',
-    date: '', heuredebut : '', nombreEtudiants: 0}) : FormGroup{
+  private initCoursForm(cours:Cours = { titre : '', categorie : 'categorie', description :  '', sujet :  'sujet',
+    date: '', heuredebut : '', nombreEtudiants: 0}) : FormGroup | null{
+if(cours) {
+  if (this.creerCoursForm.valid) {
     return this.formBuilder.group({
-      title: [cours ? cours.title : '', Validators.required],
+      titre: [cours ? cours.titre : '', Validators.required],
       description: [cours ? cours.description : '', Validators.required],
       categorie: [cours ? cours.categorie : '', Validators.required],
       sujet: [cours ? cours.sujet : '', Validators.required],
@@ -28,9 +31,12 @@ export class CreercoursComponent implements OnInit {
       nombreEtudiants: [cours ? cours.nombreEtudiants : '', Validators.required],
     })
   }
+}
+    return null;
+  }
 
   public creerCours(cours: Cours) {
-    console.log(cours);
+    this.coursService.ajouterCours(cours);
   }
 
 }

@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {UserModel} from "../models/user.model";
 import {ConnexionModel} from "../models/connexion.model";
+import {AngularFireDatabase} from "@angular/fire/compat/database";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConnexionService {
+export class ConnexionService implements OnInit{
   /* CREATION MOKE POUR l'EXEMPLE  */
   utilisateurs: UserModel[] = [
     {
@@ -31,8 +32,18 @@ export class ConnexionService {
   ]
   pseudo: string;
   mdp: string;
-  constructor() { }
+  isAuth: true;
+  data: any;
+  constructor(private afdb: AngularFireDatabase) { }
 
+  ngOnInit() {
+
+
+  }
+
+  public getUser(){
+    return this.data = this.afdb.list('users').valueChanges();
+  }
 
   public authutilisateur(donneesconnexion: ConnexionModel) : boolean
   {
@@ -40,12 +51,10 @@ export class ConnexionService {
     this.utilisateurs.map((utilisateur: UserModel) => {
       this.pseudo = utilisateur.pseudo;
       this.mdp = utilisateur.mdp;
-      console.log({pseudo: donneesconnexion.nomUtilisateur, donnepseudo: this.pseudo, mdp: donneesconnexion.motDePasse, mdpdonne: this.mdp })
-
       if(this.pseudo == donneesconnexion.nomUtilisateur &&
         this.mdp == donneesconnexion.motDePasse ){
-        console.log({pseudo: donneesconnexion.nomUtilisateur, donnepseudo: this.pseudo, mdp: donneesconnexion.motDePasse, mdpdonne: this.mdp })
-        return true;
+        this.isAuth =true;
+         return true;
       }
     });
 
