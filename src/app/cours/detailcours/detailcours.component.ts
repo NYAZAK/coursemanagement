@@ -11,17 +11,9 @@ import {ConnexionService} from "../../shared/services/connexion.service";
 })
 export class DetailcoursComponent implements OnInit {
   public cours!: any;
-  isProf: boolean;
+  isProf: boolean = false;
 
   constructor(private coursService: CoursService,private connexionService: ConnexionService,  private activeRoute: ActivatedRoute, private route: Router) {
-    this.connexionService.user$.subscribe(
-      prof => {
-
-        if(prof.uid === 'zTOIGnNlSdTEAQNsAhtln0cN1892'){
-          this.isProf = true;
-        }
-      }
-    )
   }
 
   ngOnInit(): void {
@@ -35,6 +27,14 @@ export class DetailcoursComponent implements OnInit {
       );
     }
   })
+
+    this.connexionService.user$.subscribe(
+      prof => {
+        if(prof.uid === 'zTOIGnNlSdTEAQNsAhtln0cN1892'){
+          this.isProf = true;
+        }
+      }
+    )
   }
 
 
