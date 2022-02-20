@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: "", redirectTo: 'connexion', pathMatch: 'full'},
   {path: 'connexion', component: ConnexionComponent},
   {path: 'creationUtilisateur', component: CreationuserComponent},
-  {path: 'cours', component: CoursComponent, canActivateChild: [AuthGuard], children: [
+  {path: 'cours', component: CoursComponent, children: [
       {path: 'rechercheCours', component: CherchercoursComponent},
       {path: 'creationcours', component: CreercoursComponent, canActivate: [AuthGuard]},
       {path: ':index', component: DetailcoursComponent},

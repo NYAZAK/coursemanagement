@@ -18,27 +18,27 @@ import {UserModel} from "../models/user.model";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate {
   // todo 2 verifications : si la personne est connectée, et deuxiement le statut de la personne Eleve ou Professeur
   isProf: boolean;
+  isUser: boolean;
   constructor(private serviceConexion: ConnexionService) {
   }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.serviceConexion.user$.subscribe(isprof => {
-      console.log(isprof)
-      this.isProf =  isprof.uid == 'zTOIGnNlSdTEAQNsAhtln0cN1892';
+    this.serviceConexion.user$.subscribe(user => {
+      console.log(user)
+      if(user.email){
+        this.isUser = true;
+      }
+      this.isProf =  user.uid == 'zTOIGnNlSdTEAQNsAhtln0cN1892';
     })
-    console.log(this.isProf, 'ddd');
-    return true;
+    return  this.isProf;
+  }
 
-  }
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   return true;
-  }
+
 
 
 }
