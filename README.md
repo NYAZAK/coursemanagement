@@ -4,19 +4,19 @@ projet de cours management etudiants/professeurs pour le test de candidature pix
 par Zakaria NYA - Credits : 02-2022
 
 ## firebase
-j'ai utilisé firebase et non pas une vrai rest api car plus facile et rapide à installer
+j'ai utilisé firebase et non pas une vrai rest api car plus facile et rapide à installer 
+deux utilisateurs existent dans la base de donnée firebase de google
 
-deux utilisateurs existe dans la base de donnée de firebase de google
-
-un uitilisateur professeur 
+un uitilisateur professeur  \n
 email : mail@mail.fr
 mdp: azerty
 
-un utilisateur eleve
+un utilisateur eleve \n
 email: eleve@mail.com
 mdp: 000000
 
 
+## projet Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
 ## Development server
