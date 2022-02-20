@@ -3,7 +3,7 @@
 projet de cours manager etudiants/professeurs pour le test de candidature pixalione.fr 
 par Zakaria NYA - Credits : 02-2022
 
-#branch
+##branch
 la branche principale à cloner en local est la branche dev
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
